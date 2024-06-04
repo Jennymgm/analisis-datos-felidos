@@ -13,8 +13,8 @@ theme: flaty
 #| warning: false
 
 library(tidyverse)
-library(hrbrthemes)
-library(ggthemes)
+# library(hrbrthemes)
+# library(ggthemes)
 library(plotly)
 library(DT)
 library(sf)
@@ -71,6 +71,7 @@ st_crs(felidos) <- 4326
 
 ```{r}
 #| label: tabla-felidos
+#| #| eval: false
 
 felidos |>
   st_drop_geometry() |>
@@ -98,8 +99,7 @@ felidos |>
   ggtitle("Cantidad de registros por especie") +
   xlab("Especie") +
   ylab("Cantidad de registros") +
-  coord_flip() +
-  theme_economist()
+  coord_flip()
 
 ggplotly(grafico_plotly) |> config(locale = "es")
 ```
